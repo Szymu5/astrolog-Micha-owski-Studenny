@@ -1,6 +1,6 @@
-import { useState } from 'react'
 
 import './App.css'
+import {useState} from "react";
 
 export interface KosmicznyObiekt {
   id:number;
@@ -18,7 +18,8 @@ const bazaObiektow: KosmicznyObiekt[] = [
   { id: 5, name: "Mars", type: "Planeta skalista", distance: "0.52 au", img: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=500" }
 ];
 function App() {
-
+  const [obiekty, setObiekty] = useState<KosmicznyObiekt[]>(bazaObiektow);
+  const [wybranyObiekt, setWybranyObiekt] = useState<KosmicznyObiekt>(bazaObiektow[0]);
   return (
     <>
 
