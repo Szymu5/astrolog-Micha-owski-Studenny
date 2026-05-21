@@ -45,7 +45,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
             <form onSubmit={handleSubmit} className="form">
 
                 <div className="form-group">
-                    <label htmlFor="name">Nazwa obiektu *</label>
+                    <label htmlFor="name">Nazwa obiektu: </label>
                     <input
                         id="name"
                         type="text"
@@ -56,7 +56,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="type">Typ obiektu *</label>
+                    <label htmlFor="type">Typ obiektu: </label>
                     <select
                         id="type"
                         value={type}
@@ -71,7 +71,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="distance">Odległość od Ziemi *</label>
+                    <label htmlFor="distance">Odległość od Ziemi: </label>
                     <input
                         id="distance"
                         type="text"
@@ -82,7 +82,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="description">Opis (opcjonalny)</label>
+                    <label htmlFor="description">Opis (opcjonalny): </label>
                     <textarea
                         id="description"
                         placeholder="Krótki opis obiektu..."
@@ -91,10 +91,13 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                         rows={3}
                     />
                 </div>
-
+<br>
+</br>
                 <button type="submit" className="btn-submit">
                     + Dodaj do katalogu
                 </button>
+                <br>
+                </br>
             </form>
         </section>
     );
