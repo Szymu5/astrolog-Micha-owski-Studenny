@@ -60,12 +60,8 @@ export default function App() {
   const [objects, setObjects] = useState<SpaceObject[]>(initialObjects);
   const [selectedObject, setSelectedObject] = useState<SpaceObject | null>(null);
 
-  function handleAddObject(newObject: Omit<SpaceObject, 'img'>) {
-    const objectWithImg: SpaceObject = {
-      ...newObject,
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500"
-    };
-    setObjects([...objects, objectWithImg]);
+  function handleAddObject(newObject: SpaceObject) {
+    setObjects([...objects, newObject]);
   }
 
   return (

@@ -3,7 +3,7 @@ import type { SpaceObject } from "../App";
 
 type Props = {
     objectsCount: number;
-    onAddObject: (obj: Omit<SpaceObject, 'img'>) => void;
+    onAddObject: (obj: SpaceObject) => void;
 };
 
 const typeOptions = ["Planeta", "Gwiazda", "Księżyc", "Asteroida", "Kometa", "Galaktyka"];
@@ -13,6 +13,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
     const [type, setType] = useState("Planeta");
     const [distance, setDistance] = useState("");
     const [description, setDescription] = useState("");
+    const [img, setImg] = useState("");
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
@@ -22,12 +23,15 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
             return;
         }
 
-        const newObject = {
+        const defaultImg = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500";
+
+        const newObject: SpaceObject = {
             id: objectsCount + 1,
             name: name.trim(),
             type,
             distance: distance.trim(),
             description: description.trim(),
+            img: img.trim() !== "" ? img.trim() : defaultImg
         };
         onAddObject(newObject);
 
@@ -35,6 +39,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
         setType("Planeta");
         setDistance("");
         setDescription("");
+        setImg("");
     }
 
     return (
@@ -79,7 +84,18 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group form-group-full">
+                    <label htmlFor="img">Link do zdjęcia: </label>
+                    <input
+                        id="img"
+                        type="text"
+                        placeholder="https://example.com/zdjecie.jpg"
+                        value={img}
+                        onChange={(e) => setImg(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group form-group-full">
                     <label htmlFor="description">Opis (opcjonalny): </label>
                     <textarea
                         id="description"
