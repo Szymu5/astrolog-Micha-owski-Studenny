@@ -1,7 +1,8 @@
-import { type KosmicznyObiekt } from '../App';
+import { type SpaceObject } from '../App';
+
 interface CatalogListProps {
-    obiekty: KosmicznyObiekt[];
-    onWybierzObiekt: (obiekt: KosmicznyObiekt) => void;
+    obiekty: SpaceObject[];
+    onWybierzObiekt: (obiekt: SpaceObject) => void;
 }
 
 function CatalogList({ obiekty, onWybierzObiekt }: CatalogListProps) {
@@ -13,7 +14,6 @@ function CatalogList({ obiekty, onWybierzObiekt }: CatalogListProps) {
 
             <div className="catalog-list" style={{ marginTop: '15px' }}>
                 {obiekty.map(function(item) {
-
                     function handleItemClick() {
                         onWybierzObiekt(item);
                     }
@@ -50,4 +50,3 @@ function CatalogList({ obiekty, onWybierzObiekt }: CatalogListProps) {
 }
 
 export default CatalogList;
-export default function CatalogList(){}
