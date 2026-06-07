@@ -50,3 +50,4 @@ function CatalogList({ obiekty, onWybierzObiekt }: CatalogListProps) {
 }
 
 export default CatalogList;
+export default function CatalogList(){}
