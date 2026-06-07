@@ -3,13 +3,12 @@ import type { SpaceObject } from "../App";
 
 type Props = {
     objectsCount: number;
-    onAddObject: (obj: SpaceObject) => void;
+    onAddObject: (obj: Omit<SpaceObject, 'img'>) => void;
 };
 
 const typeOptions = ["Planeta", "Gwiazda", "Księżyc", "Asteroida", "Kometa", "Galaktyka"];
 
 export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
-
     const [name, setName] = useState("");
     const [type, setType] = useState("Planeta");
     const [distance, setDistance] = useState("");
@@ -23,7 +22,7 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
             return;
         }
 
-        const newObject: SpaceObject = {
+        const newObject = {
             id: objectsCount + 1,
             name: name.trim(),
             type,
@@ -43,7 +42,6 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
             <h2>Zgłoś nowe odkrycie</h2>
 
             <form onSubmit={handleSubmit} className="form">
-
                 <div className="form-group">
                     <label htmlFor="name">Nazwa obiektu: </label>
                     <input
@@ -91,13 +89,11 @@ export default function DiscoveryForm({ objectsCount, onAddObject }: Props) {
                         rows={3}
                     />
                 </div>
-<br>
-</br>
+                <br />
                 <button type="submit" className="btn-submit">
                     + Dodaj do katalogu
                 </button>
-                <br>
-                </br>
+                <br />
             </form>
         </section>
     );
