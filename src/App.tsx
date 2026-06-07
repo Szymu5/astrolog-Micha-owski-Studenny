@@ -74,4 +74,22 @@ export default function App() {
           <h1 style={{ color: '#fff', margin: 0 }}>🌌 KOSMICZNY REJESTR OBSERWACYJNY</h1>
         </header>
 
-        <main className="main
+        <main className="main-layout" style={{ display: 'flex', gap: '20px', padding: '20px', alignItems: 'flex-start' }}>
+          <div className="left-column" style={{ flex: '1', minWidth: '280px' }}>
+            <CatalogList
+                obiekty={objects}
+                onWybierzObiekt={setSelectedObject}
+            />
+          </div>
+
+          <div className="right-column" style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: '2' }}>
+            <ObjectDetails selectedObject={selectedObject} />
+            <DiscoveryForm
+                objectsCount={objects.length}
+                onAddObject={handleAddObject}
+            />
+          </div>
+        </main>
+      </div>
+  );
+}
